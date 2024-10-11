@@ -1,9 +1,10 @@
 const express = require('express');
-
 const app = express();
 
-app.get('/', (req, res) => {
-    res.send('Hello Dudes!');
+app.use('/', express.static('public'));
+
+app.get('/api', (req, res, next) => {
+    res.json({test: 2});
 });
 
 var port = process.env.PORT || 3000;
